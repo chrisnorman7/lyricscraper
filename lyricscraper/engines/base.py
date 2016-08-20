@@ -23,6 +23,8 @@ class NoLyricsFound(Exception):
 # Add all engines to the below list.
 
 from .pylyrics import PyLyricsEngine
+from .metro_lyrics import MetroLyricsEngine
 engines = [
- PyLyricsEngine()
+ PyLyricsEngine(),
+ MetroLyricsEngine(),
 ]
