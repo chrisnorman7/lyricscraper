@@ -2,7 +2,7 @@
 Get lyrics from metrolyrics.com.
 """
 
-from requests import get, codes
+from requests import get
 from bs4 import BeautifulSoup
 from .base import BaseEngine, NoLyricsFound
 
@@ -11,7 +11,7 @@ class MetroLyricsEngine(BaseEngine):
  name = 'Metro Lyrics'
  def get_lyrics(self, artist, title):
   response = get('http://www.metrolyrics.com/%s-lyrics-%s.html' % (title.lower().replace(' ', '-'), artist.lower().replace(' ', '-')))
-  if response.status_code == codes.OK:
+  if response.ok:
    soup = BeautifulSoup(response.content)
    div = soup.find('div', id = 'lyrics-body-text')
    try:
@@ -20,4 +20,3 @@ class MetroLyricsEngine(BaseEngine):
     raise NoLyricsFound()
   else:
    raise NoLyricsFound()
-
