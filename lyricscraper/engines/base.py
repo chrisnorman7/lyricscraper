@@ -22,9 +22,11 @@ class NoLyricsFound(Exception):
 
 # Add all engines to the below list.
 
+from .azlyrics import AZLyricsEngine
 from .pylyrics import PyLyricsEngine
 from .metro_lyrics import MetroLyricsEngine
 engines = [
+ AZLyricsEngine(),
  PyLyricsEngine(),
  MetroLyricsEngine(),
 ]

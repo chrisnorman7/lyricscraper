@@ -7,7 +7,7 @@ from .base import BaseEngine, NoLyricsFound
 
 class PyLyricsEngine(BaseEngine):
  """An engine utilising pylyrics."""
- name = 'PyLyrics'
+ name = 'LyricWikia'
  def get_lyrics(self, artist, title):
   try:
    return PyLyrics.getLyrics(artist, title)
