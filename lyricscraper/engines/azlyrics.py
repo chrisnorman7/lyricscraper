@@ -5,6 +5,7 @@ An engine for azlyrics.com.
 from .base import BaseEngine, NoLyricsFound
 from bs4 import BeautifulSoup
 from urllib import request, error
+from http.client import RemoteDisconnected
 
 class AZLyricsEngine(BaseEngine):
  """An engine for getting lyrics from azlyrics.com."""
@@ -15,9 +16,9 @@ class AZLyricsEngine(BaseEngine):
    artist = artist.replace(char, '').lower()
    title = title.replace(char, '').lower()
   try:
-   print('http://azlyrics.com/lyrics/%s/%s.html' % (title, artist))
    res = request.urlopen('http://azlyrics.com/lyrics/%s/%s.html' % (title, artist))
-  except error.HTTPError:
+   res = request.urlopen('http://azlyrics.com/lyrics/%s/%s.html' % (title, artist))
+  except (error.HTTPError, RemoteDisconnected):
    raise NoLyricsFound()
   soup = BeautifulSoup(res.read())
   return soup.find('div', attrs = {'class': None, 'id': None}).text.strip()
