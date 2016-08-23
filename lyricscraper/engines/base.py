@@ -25,6 +25,7 @@ class NoLyricsFound(Exception):
 from .azlyrics import AZLyricsEngine
 from .pylyrics import PyLyricsEngine
 from .metro_lyrics import MetroLyricsEngine
+
 engines = [
  AZLyricsEngine(),
  PyLyricsEngine(),
