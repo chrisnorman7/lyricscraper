@@ -18,7 +18,7 @@ class AZLyricsEngine(BaseEngine):
   try:
    res = request.urlopen('http://azlyrics.com/lyrics/%s/%s.html' % (title, artist))
    res = request.urlopen('http://azlyrics.com/lyrics/%s/%s.html' % (title, artist))
-  except (error.HTTPError, RemoteDisconnected):
+  except (error.URLError, RemoteDisconnected):
    raise NoLyricsFound()
   soup = BeautifulSoup(res.read())
   return soup.find('div', attrs = {'class': None, 'id': None}).text.strip()

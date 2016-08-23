@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
  name = 'lyricscraper',
- version = '0.0.4',
+ version = '0.0.5',
  description = 'A library for grabbing song lyrics from several sources.',
  url = 'http://github.com/chrisnorman7/lyricscraper.git',
  author = 'Chris Norman',
