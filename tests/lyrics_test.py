@@ -1,10 +1,10 @@
-import pytest
-from lyricscraper import lyrics
+from lyricscraper.lyrics import Lyrics, get_lyrics
 
 artist = 'Eminem'
 title = 'Mocking Bird'
 
+
 def test_get_lyrics():
- l = lyrics.get_lyrics(artist, title)
- assert isinstance(l, lyrics.Lyrics)
- assert str(l) == '{} - {}'.format(artist, title)
+    l = get_lyrics(artist, title)
+    assert isinstance(l, Lyrics)
+    assert str(l) == '{} - {}'.format(artist, title)
