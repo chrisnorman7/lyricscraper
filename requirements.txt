@@ -1,3 +1,4 @@
 pylyrics
 requests
 beautifulsoup4
+attrs
