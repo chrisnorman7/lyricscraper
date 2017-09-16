@@ -26,7 +26,7 @@ class MetroLyricsEngine(BaseEngine):
             raise NoLyricsFound()
         soup = BeautifulSoup(response.content, 'html.parser')
         div = soup.find('div', id='lyrics-body-text')
-        if div.text is None:
-            raise NoLyricsFound()
-        else:
+        try:
             return div.text.strip()
+        except AttributeError:
+            raise NoLyricsFound()
